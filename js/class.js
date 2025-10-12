@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
 // color-switch.js
 document.addEventListener('DOMContentLoaded', function () {
     const colorOptions = document.querySelectorAll('.color-option');
@@ -34,12 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('active');
 
             // Mettre à jour le texte de la couleur sélectionnée
-            const colorName = this.getAttribute('title');
-            selectedColorText.textContent = colorName;
+            selectedColorText.textContent = this.getAttribute('title');
 
-            // Changer l'image du produit
-            const newSrc = this.getAttribute('data-src');
-            productImage.src = newSrc;
+            // Fade-out l'image
+            productImage.style.opacity = 0;
+
+            // Après le fade-out, changer l'image et fade-in
+            setTimeout(() => {
+                productImage.src = this.getAttribute('data-src');
+                productImage.style.opacity = 1;
+            }, 200); // 200ms correspond à la moitié de la durée de transition
         });
     });
 });
+

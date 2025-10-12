@@ -40,3 +40,8 @@
 .playfair {
     font-family: 'Playfair Display', serif
 }
+
+#product-image {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 1;
+}
