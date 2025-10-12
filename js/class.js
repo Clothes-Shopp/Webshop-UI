@@ -43,3 +43,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+       
+        const sizeOptions = document.querySelectorAll('.size-option');
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const isSelected = option.classList.contains('bg-gray-300');
+
+             
+                sizeOptions.forEach(o => o.classList.remove('bg-gray-300', 'text-gray-800'));
+
+              
+                if (!isSelected) {
+                    option.classList.add('bg-gray-300', 'text-gray-800');
+                }
+            });
+        });
+  
