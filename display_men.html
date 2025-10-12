@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Suit Ensemble - HOMME Wardrobe</title>
+    <title>Costume élégant - HOMME Wardrobe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -14,20 +14,40 @@
 </head>
 
 <body class="bg-gray-50">
-    <!-- En-tête -->
-    <header class="bg-white shadow-sm">
+       
+      <!-- Navbar -->
+  <header class="border-b bg-white shadow-sm">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="brand-font playfair text-2xl font-bold tracking-wide">
+        Webshop<span class="text-red-500">.</span>
+      </h1>
 
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-red-400 transition">Accueil</a>
+        <a href="collection_men.html" class="text-red-400 border-b-2 border-red-400 pb-1">Hommes</a>
+        <a href="collection_women.html" class="hover:text-red-400 transition">Femmes</a>
+        <a href="#" class="hover:text-red-400 transition">Contact</a>
+      </nav>
 
-        <!-- Logo -->
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex flex-col items-center">
-                <h1 class="brand-font text-2xl text-center mb-4 tracking-widest">
-                    H O M M E<br>
-                    <span class="text-xl tracking-normal font-normal playfair">Webshop</span>
-                </h1>
-            </div>
+      <div class="flex items-center space-x-4 text-gray-600">
+        <i class="fas fa-search cursor-pointer hover:text-black"></i>
+        <i class="fas fa-user cursor-pointer hover:text-black"></i>
+        <div class="relative">
+          <i class="fas fa-shopping-bag cursor-pointer hover:text-black"></i>
+          <span class="absolute -top-2 -right-2 bg-red-400 text-white text-xs rounded-full px-1.5">0</span>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
+
+  
+  <!-- Bouton Retour -->
+<div class="container mx-auto px-6 mt-4">
+  <a href="collection_men.html"
+    class="inline-flex items-center text-gray-700 border border-gray-300 rounded-lg px-4 py-2 text-sm font-medium hover:bg-gray-100 transition">
+    <i class="fas fa-arrow-left mr-2"></i> Retour à la collection
+  </a>
+</div>
 
     <!-- Contenu principal -->
     <main class="container mx-auto px-4 py-8">
@@ -36,7 +56,7 @@
             <div class="md:w-1/3">
                 <div class="bg-white p-8 rounded-lg shadow-sm h-full flex items-center justify-center">
                     <div class="bg-gray-100 w-full h-full rounded overflow-hidden">
-                        <img id="product-image" src="img/costume/costume_noir.jpg" alt="Men Power Suit Ensemble"
+                        <img id="product-image" src="img/costume/costume_noir.jpg" alt="Men costume élégant"
                             class="w-full h-[inherit] object-cover">
                     </div>
                 </div>
@@ -47,7 +67,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-sm h-full">
                     <div class="mb-4">
                         <span class="text-sm text-gray-500">Business</span>
-                        <h1 class="text-2xl font-bold text-gray-800 mt-1">Power Suit Ensemble</h1>
+                        <h1 class="text-2xl font-bold text-gray-800 mt-1">Costume élégant</h1>
                     </div>
 
                     <div class="mb-4">
@@ -60,7 +80,7 @@
 
                     <div class="mb-6">
                         <p class="text-gray-600">
-                            Conçu pour l’homme moderne, le Power Suit Ensemble offre une coupe élégante et une finition
+                            Conçu pour l’homme moderne, le costume élégant offre une coupe élégante et une finition
                             haut de gamme. Idéal pour les réunions, les événements formels ou les grandes occasions,
                             il allie style, confort et confiance.
                         </p>
@@ -68,17 +88,20 @@
 
                     <!-- Tailles -->
                     <div class="mb-4">
-                        <p class="text-sm text-gray-700 mb-2">Sélectionnez votre taille :</p>
-                        <div class="flex items-center space-x-4 mb-2">
-                            <span
-                                class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">XL</span>
-                            <span
-                                class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">L</span>
-                            <span
-                                class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">M</span>
-                            <span
-                                class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">S</span>
-                        </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-sm text-gray-700">Sélectionnez votre taille :</p>
+                        <button id="openSizeGuide"
+                        class="text-xs text-red-500 hover:text-red-600 underline font-medium">
+                        Guide des tailles
+                        </button>
+                    </div>
+
+                    <div class="flex items-center space-x-4 mb-2">
+                        <span class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">XL</span>
+                        <span class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">L</span>
+                        <span class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">M</span>
+                        <span class="size-option text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 cursor-pointer">S</span>
+                    </div>
                     </div>
 
                     <!-- Couleurs -->
@@ -159,7 +182,7 @@
             </div>
             <div class="p-6">
                 <p class="text-gray-600">
-                    Le Power Suit Ensemble pour homme est confectionné à partir de tissus premium offrant une coupe
+                    Le costume élégant pour homme est confectionné à partir de tissus premium offrant une coupe
                     ajustée et confortable. Parfait pour le travail, les rendez-vous importants ou les soirées
                     élégantes.
                 </p>
@@ -174,70 +197,83 @@
         </div>
     </main>
 
-    <!-- Pied de page -->
-    <footer class="bg-gray-800 text-white mt-12 py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="font-bold mb-4 flex items-center">
-                        <i class="fas fa-store mr-2"></i> Boutique
-                    </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> À propos</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Livraison</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4 flex items-center">
-                        <i class="fas fa-headset mr-2"></i> Service client
-                    </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> FAQ</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Retours</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Politique de confidentialité</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4 flex items-center">
-                        <i class="fas fa-user-circle mr-2"></i> Compte
-                    </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Connexion</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Panier</a></li>
-                        <li><a href="#" class="hover:text-white flex items-center"><i
-                                    class="fas fa-chevron-right mr-2 text-xs"></i> Suivi de commande</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4 flex items-center">
-                        <i class="fas fa-envelope mr-2"></i> Newsletter
-                    </h3>
-                    <p class="text-gray-300 mb-2">Recevez nos dernières offres exclusives</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Votre email" class="px-3 py-2 text-gray-800 rounded-l w-full">
-                        <button class="bg-black px-4 py-2 rounded-r hover:bg-gray-700 flex items-center">
-                            <i class="fas fa-paper-plane mr-2"></i> S'inscrire
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-                <p><i class="far fa-copyright mr-1"></i> 2025 HOMME Wardrobe. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
+     <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center">
+    <p><i class="far fa-copyright mr-1"></i> 2025 Webshop. Tous droits réservés.</p>
+  </footer>
 
     <script src="js/class.js"></script>
     <script src="js/count.js"></script>
+
+ <!-- MODAL - Guide des tailles -->
+<div id="sizeGuideModal"
+  class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 flex items-center justify-center">
+  
+  <div class="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 relative transform transition-all">
+    <!-- Bouton fermeture -->
+    <button id="closeSizeGuide"
+      class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Titre -->
+    <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+      <i class="fas fa-ruler-combined mr-2 text-red-500"></i> Guide des tailles
+    </h2>
+
+    <!-- Tableau -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-gray-700 border border-gray-200 rounded-lg overflow-hidden">
+        <thead class="bg-gray-100 text-gray-800 font-semibold">
+          <tr>
+            <th class="py-2 px-3 text-left">Taille</th>
+            <th class="py-2 px-3 text-left">Tour de poitrine (cm)</th>
+            <th class="py-2 px-3 text-left">Tour de taille (cm)</th>
+            <th class="py-2 px-3 text-left">Tour de hanches (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="py-2 px-3">S</td>
+            <td class="py-2 px-3">88 - 94</td>
+            <td class="py-2 px-3">76 - 82</td>
+            <td class="py-2 px-3">90 - 96</td>
+          </tr>
+          <tr class="border-t">
+            <td class="py-2 px-3">M</td>
+            <td class="py-2 px-3">95 - 101</td>
+            <td class="py-2 px-3">83 - 89</td>
+            <td class="py-2 px-3">97 - 103</td>
+          </tr>
+          <tr class="border-t">
+            <td class="py-2 px-3">L</td>
+            <td class="py-2 px-3">102 - 108</td>
+            <td class="py-2 px-3">90 - 96</td>
+            <td class="py-2 px-3">104 - 110</td>
+          </tr>
+          <tr class="border-t">
+            <td class="py-2 px-3">XL</td>
+            <td class="py-2 px-3">109 - 115</td>
+            <td class="py-2 px-3">97 - 103</td>
+            <td class="py-2 px-3">111 - 117</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  const openModalBtn = document.getElementById('openSizeGuide');
+  const closeModalBtn = document.getElementById('closeSizeGuide');
+  const modal = document.getElementById('sizeGuideModal');
+
+  openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+  closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
+</script>
 
 </body>
 
