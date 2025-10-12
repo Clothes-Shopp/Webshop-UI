@@ -1,0 +1,69 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F E M M E</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header class="w-full h-64 relative">
+        <!-- Image du header -->
+        <img src="img/header.png" alt="Header Image" class="w-full h-full object-cover object-center">
+
+        <!-- Overlay sombre -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <!-- Texte centré -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <h1 class="text-white text-4xl md:text-5xl font-bold">Articles Femme</h1>
+        </div>
+    </header>
+
+      
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card Produit -->
+            <div class="bg-white shadow rounded group flex flex-col items-center">
+                <!-- Conteneur image -->
+                <div class="relative w-40 h-80 overflow-hidden">
+                    <img src="img/pants/noir.png" alt="Produit" class="w-full h-full object-cover object-center">
+
+                </div>
+
+                <div class="w-full border-t border-gray-300 my-2"></div>
+
+                <!-- Contenu -->
+                <div class="p-4 w-50 text-center">
+                    <h3 class="text-lg font-bold mb-2">Pantalon décontractée</h3>
+
+                    <!-- Prix -->
+                    <p class="text-gray-500">1,800 MUR</p>
+
+                    <a href="display_women.html" class="inline-block">
+                        <button class="bg-red-400 text-white px-4 py-2 rounded hover:bg-red-500 transition mt-4">
+                          Découvrir
+                        </button>
+                      </a>
+                      
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+    <script src="js/class.js"></script>
+    <script src="js/search.js"></script>
+</body>
