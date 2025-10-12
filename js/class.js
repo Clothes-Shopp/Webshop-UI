@@ -1,5 +1,5 @@
 
-// Gestion de la sélection des couleurs
+// switch-color costume homme
 document.addEventListener('DOMContentLoaded', function () {
     const colorOptions = document.querySelectorAll('.color-option');
     const selectedColorText = document.getElementById('selected-color');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// color-switch.js
+// color-switch pants casual femme
 document.addEventListener('DOMContentLoaded', function () {
     const colorOptions = document.querySelectorAll('.color-option');
     const selectedColorText = document.getElementById('selected-color');
