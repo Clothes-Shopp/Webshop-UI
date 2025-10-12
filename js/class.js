@@ -64,4 +64,53 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if(i === index) {
+            slide.style.opacity = '1';
+            slide.style.pointerEvents = 'auto';
+            } else {
+            slide.style.opacity = '0';
+            slide.style.pointerEvents = 'none';
+            }
+        });
+        }
+
+        // Flèches
+        document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+        });
+
+        // Auto-slide toutes les 10 secondes
+        setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+        }, 10000);
+
+        // Initialisation
+        showSlide(currentIndex);
+
+          AOS.init({
+    duration: 1000, // durée de l'animation
+    once: true,     // animation une seule fois au scroll
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+  if (AOS) {
+    AOS.init({
+      duration: 1000, // durée des animations
+      once: true      // animation visible une seule fois
+    });
+  }
+});
+
   
