@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const continueShoppingBtn = document.getElementById('continue-shopping-btn');
+  if (continueShoppingBtn) {
+    continueShoppingBtn.addEventListener('click', () => {
+      closeCart();
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && cartSidebar && !cartSidebar.classList.contains('translate-x-full')) {
       closeCart();
@@ -87,8 +94,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!cartItems) return;
 
     if (cart.length === 0) {
-      cartItems.innerHTML = '<p class="text-gray-500 text-center">Votre panier est vide</p>';
-      if (cartTotal) cartTotal.textContent = '0 MUR';
+      // Exemple static du panier 
+      const example = {
+        id: 'sample-1',
+        name: 'Costume élégant',
+        price: 5000,
+        quantity: 1,
+        image: 'img/costume/costume_bleu.jpg'
+      };
+
+      updateCartCount(1);
+      
+
+      cartItems.innerHTML = `
+        <div class="flex items-start gap-4 pb-4 border-b">
+          <img src="${example.image}" alt="${example.name}" class="w-20 h-20 object-cover rounded">
+          <div class="flex-1">
+            <h3 class="font-semibold text-sm">${example.name}</h3>
+            <p class="text-gray-500 text-xs">${example.price} MUR</p>
+            <div class="mt-2 flex items-center gap-2">
+              <button class="w-8 h-8 flex items-center justify-center border rounded text-gray-400 cursor-not-allowed">-</button>
+              <span class="px-3 py-1 border rounded text-sm">${example.quantity}</span>
+              <button class="w-8 h-8 flex items-center justify-center border rounded text-gray-400 cursor-not-allowed">+</button>
+            </div>
+            <p class="font-semibold text-sm mt-2">${example.price} MUR</p>
+          </div>
+          <button class="text-red-500 ml-2 opacity-60 cursor-not-allowed">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button class="text-green-500 ml-2 opacity-60 cursor-not-allowed">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+      `;
+
+      if (cartTotal) cartTotal.textContent = example.price + ' MUR';
       return;
     }
 
@@ -104,11 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${item.image || 'img/homepage/chemise_en_lin.jpg'}" alt="${item.name}" class="w-20 h-20 object-cover rounded">
           <div class="flex-1">
             <h3 class="font-semibold text-sm">${item.name}</h3>
-            <p class="text-gray-500 text-xs">${item.price} MUR × ${item.quantity}</p>
-            <p class="font-semibold text-sm mt-1">${itemTotal} MUR</p>
+            <p class="text-gray-500 text-xs">${item.price} MUR</p>
+            <div class="mt-2 flex items-center gap-2">
+              <button onclick="window.cartFunctions.changeQuantity('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center border rounded text-gray-700 hover:bg-gray-100">-</button>
+              <span class="px-3 py-1 border rounded text-sm">${item.quantity}</span>
+              <button onclick="window.cartFunctions.changeQuantity('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center border rounded text-gray-700 hover:bg-gray-100">+</button>
+            </div>
+            <p class="font-semibold text-sm mt-2">${itemTotal} MUR</p>
           </div>
-          <button onclick="window.cartFunctions.removeFromCart('${item.id}')" class="text-gray-400 hover:text-red-500">
-            <i class="fas fa-trash text-sm"></i>
+          <button onclick="window.cartFunctions.removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700 ml-2">
+            <i class="fas fa-trash"></i>
           </button>
         </div>
       `;
@@ -117,6 +162,18 @@ document.addEventListener('DOMContentLoaded', () => {
     cartItems.innerHTML = html;
     if (cartTotal) cartTotal.textContent = total + ' MUR';
   }
+
+  window.cartFunctions.changeQuantity = function(productId, delta) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const idx = cart.findIndex(i => i.id === productId);
+    if (idx === -1) return;
+    cart[idx].quantity = (cart[idx].quantity || 0) + delta;
+    if (cart[idx].quantity <= 0) {
+      cart.splice(idx, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+  };
 
   window.cartFunctions.removeFromCart = function(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];

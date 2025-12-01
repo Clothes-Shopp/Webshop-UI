@@ -65,28 +65,35 @@
     </nav>
   </header>
 
-  <!-- Cart Sidebar -->
+
   <div id="cart-sidebar" class="fixed top-0 right-0 w-80 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
     <div class="flex justify-between items-center p-6 border-b">
-      <h2 class="text-lg font-bold">Panier</h2>
-      <button id="close-cart-btn" class="text-2xl font-bold text-gray-400 hover:text-black">×</button>
+      <h2 class="text-xl font-bold">Mon panier</h2>
+      <button id="close-cart-btn" class="text-gray-500 hover:text-black">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
     </div>
+
     <div id="cart-items" class="flex-1 overflow-y-auto p-6">
-      <!-- Cart items will be populated here by JS -->
+      <p class="text-gray-500 text-center">Votre panier est vide</p>
     </div>
-    <div class="border-t p-6 space-y-3">
-      <div class="flex justify-between text-sm font-medium">
+
+    <div class="border-t p-6">
+      <div class="flex justify-between mb-4 font-semibold">
         <span>Total:</span>
         <span id="cart-total">0 MUR</span>
       </div>
-      <a href="payment.html" class="block w-full bg-red-400 text-white py-3 px-4 rounded-lg hover:bg-red-500 transition text-center font-medium">
+      <a href="payment.html" class="block w-full bg-red-400 text-white py-3 px-4 rounded-lg hover:bg-red-500 transition font-semibold text-center shadow-md hover:shadow-lg">
         Procéder au paiement
       </a>
+      <button id="continue-shopping-btn" class="w-full mt-2 border border-gray-300 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-50 transition font-semibold">
+        Continuer vos achats
+      </button>
     </div>
   </div>
 
-  <!-- Cart Backdrop -->
-  <div id="cart-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+  <div id="cart-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden transition-all duration-300"></div>
+
 
 
   <!-- CONTACT SECTION -->
