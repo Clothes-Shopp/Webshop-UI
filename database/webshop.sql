@@ -81,3 +81,36 @@ CREATE TABLE IF NOT EXISTS paiement_produit (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============================================================
+-- TABLE panier
+-- ============================================================
+
+CREATE TABLE panier (
+    idpanier INT AUTO_INCREMENT PRIMARY KEY,
+    idutilisateur INT NOT NULL,
+    datecreation DATETIME DEFAULT CURRENT_TIMESTAMP,
+    est_actif TINYINT DEFAULT 1,
+    FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- TABLE D’ASSOCIATION : panier_produit
+-- ============================================================
+
+CREATE TABLE panier_produit (
+    idpanier INT NOT NULL,
+    referenceprod INT NOT NULL,
+    quantite INT NOT NULL DEFAULT 1 CHECK (quantite > 0),
+    PRIMARY KEY (idpanier, referenceprod),
+    FOREIGN KEY (idpanier) REFERENCES panier(idpanier)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (referenceprod) REFERENCES produit(referenceprod)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
